@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bullhorn: Add</title>
+</head>
+<body>
+<h1>Add a Message</h1>
+<form action="#" th:action="@{/process}" th:object="${message}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <b>What do you want to say?</b><input type="text" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{'content'}"></span><br />
+    Today's Date:<input type="text" th:field="*{postedDate}" />
+    <span th:if="${#fields.hasErrors('postedDate')}"
+          th:errors="*{'postedDate'}"></span><br />
+    Enter your name:<input type="text" th:field="*{sentBy}" />
+    <span th:if="${#fields.hasErrors('sentBy')}"
+          th:errors="*{'sentBy'}"></span><br />
+    <input type="submit" value="Submit" /><br /><br />
+    <a href="/add">View Messages</a>
+</form>
+</body>
+</html>

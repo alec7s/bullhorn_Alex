@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bullhorn: Messages</title>
+</head>
+<body>
+<h1>Welcome to Bullhorn</h1>
+<th:block th:each="message : ${messages}">
+    <h3>MESSAGE #[[${message.id}]]</h3>
+    <b><span th:text="${message.content}" ></span></b><br />
+    Posted on: <span th:text="${message.postedDate}" ></span><br />
+    By: <span th:text="${message.sentBy}" ></span><br /><br />
+</th:block>
+<a href="/add">+ Add Message</a>
+</body>
+</html>
